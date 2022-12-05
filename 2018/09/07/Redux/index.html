@@ -4,12 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="SCSS模块化引入,      ">
-    <meta name="description" content="
-npm i sass --save-dev
-将SCSS文件命名为xxx.module.scss
-导入SCSS  import style from &amp;#39;./xxx.scss&amp;#39;
-组件中将className设置为classNam">
+    <meta name="keywords" content="redux-toolkit使用步骤,      ">
+    <meta name="description" content="react项目中使用redux-toolkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +17,7 @@ npm i sass --save-dev
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>SCSS模块化引入 | Lx</title>
+    <title>redux-toolkit使用步骤 | Lx</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -338,12 +334,12 @@ npm i sass --save-dev
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">SCSS模块化引入</h1>
+                    <h1 class="description center-align post-title">redux-toolkit使用步骤</h1>
                 </div>
             </div>
         </div>
@@ -365,12 +361,29 @@ npm i sass --save-dev
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/React-redux/">
+                                <span class="chip bg-color">React-redux</span>
+                            </a>
+                        
+                            <a href="/tags/Redux-toolkit/">
+                                <span class="chip bg-color">Redux-toolkit</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/React/" class="post-category">
+                                React
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -379,7 +392,7 @@ npm i sass --save-dev
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-29
+                    2018-09-07
                 </div>
                 
 
@@ -400,13 +413,52 @@ npm i sass --save-dev
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ol>
-<li><code>npm i sass --save-dev</code></li>
-<li>将SCSS文件命名为xxx.module.scss</li>
-<li>导入SCSS  <code>import style from &#39;./xxx.scss&#39;</code></li>
-<li>组件中将className设置为<code>className=&#123;style.xxx&#125;</code></li>
+                <h5 id="1-安装redux配套工具"><a href="#1-安装redux配套工具" class="headerlink" title="1.安装redux配套工具"></a>1.安装redux配套工具</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 安装redux配套工具</span><br><span class="line">npm i @reduxjs/toolkit react-redux</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-创建store"><a href="#2-创建store" class="headerlink" title="2.创建store"></a>2.创建store</h5><blockquote>
+<p>创建store的的核心步骤分为两步</p>
+<ol>
+<li>使用toolkit的<strong>createSlice</strong>方法创建一个独立的子模块</li>
+<li>使用<strong>configureStore</strong>语法组合子模块</li>
+<li>文件夹结构  store[index.js[module[countStore.js]]]</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import React from &#x27;react&#x27;;</span><br><span class="line">import style from &#x27;./about.module.scss&#x27;;</span><br><span class="line">function About() &#123;</span><br><span class="line">  return &lt;div className=&#123;style.about&#125;&gt;about&lt;/div&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default About;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>​         1.创建子模块</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createSlice &#125; from &#x27;@reduxjs/toolkit&#x27;</span><br><span class="line"></span><br><span class="line">const counter = createSlice(&#123;</span><br><span class="line">  // 模块名称独一无二</span><br><span class="line">  name: &#x27;counter&#x27;,</span><br><span class="line">  // 初始数据</span><br><span class="line">  initialState: &#123;</span><br><span class="line">    count: 1</span><br><span class="line">  &#125;,</span><br><span class="line">  // 修改数据的同步方法</span><br><span class="line">  reducers: &#123;</span><br><span class="line">    add (state) &#123;</span><br><span class="line">      state.count++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const &#123; add &#125; = counter.actions</span><br><span class="line">const reducer = counter.reducer</span><br><span class="line"></span><br><span class="line">// 导出修改数据的函数</span><br><span class="line">export &#123; add &#125;</span><br><span class="line">// 导出reducer</span><br><span class="line">export default reducer</span><br></pre></td></tr></table></figure>
+
+<p>​        2.组合子模块</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import &#123; configureStore &#125; from &#x27;@reduxjs/toolkit&#x27;</span><br><span class="line"></span><br><span class="line">import counterStore from &#x27;./counterStore&#x27;</span><br><span class="line"></span><br><span class="line">export default configureStore(&#123;</span><br><span class="line">  reducer: &#123;</span><br><span class="line">    // 注册子模块</span><br><span class="line">    counterStore</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-为React提供redux"><a href="#3-为React提供redux" class="headerlink" title="3.为React提供redux"></a>3.为React提供redux</h5><blockquote>
+<p>要想让所有的组件都有资格访问store中的数据，需要我们在入口文件中添加Provide来包裹根组件</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import React from &#x27;react&#x27;</span><br><span class="line">import ReactDOM from &#x27;react-dom/client&#x27;</span><br><span class="line">import App from &#x27;./App&#x27;</span><br><span class="line">// 导入store</span><br><span class="line">import store from &#x27;./store&#x27;</span><br><span class="line">// 导入store提供组件Provider</span><br><span class="line">import &#123; Provider &#125; from &#x27;react-redux&#x27;</span><br><span class="line"></span><br><span class="line">ReactDOM.createRoot(document.getElementById(&#x27;root&#x27;)).render(</span><br><span class="line">  // 提供store数据</span><br><span class="line">  &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">    &lt;App /&gt;</span><br><span class="line">  &lt;/Provider&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-组件中使用store"><a href="#4-组件中使用store" class="headerlink" title="4.组件中使用store"></a>4.组件中使用store</h5><blockquote>
+<p>组件中使用store中的数据需要借助一个hool方法，叫做useSelector</p>
+<p>useSelector(store&#x3D;&gt;store.模块名)方法的返回值是一个对象，里面包含了store中的所有数据</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import &#123; useSelector &#125; from &#x27;react-redux&#x27;</span><br><span class="line"></span><br><span class="line">function App () &#123;</span><br><span class="line">  // 使用数据</span><br><span class="line">  const &#123; count &#125; = useSelector(store =&gt; store.counterStore)//直接解构出store里的count</span><br><span class="line">  </span><br><span class="line">  return (</span><br><span class="line">    &lt;div className=&quot;App&quot;&gt;</span><br><span class="line">      &#123;count&#125;</span><br><span class="line">      &lt;button onClick=&#123;clickHandler&#125;&gt;+&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default App</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-组件中修改store中的数据"><a href="#5-组件中修改store中的数据" class="headerlink" title="5.组件中修改store中的数据"></a>5.组件中修改store中的数据</h5><blockquote>
+<p>通过dispatch函数传入导出的action方法</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import &#123; useSelector, useDispatch &#125; from &#x27;react-redux&#x27;</span><br><span class="line">import &#123; add &#125; from &#x27;./store/counterStore&#x27;</span><br><span class="line"></span><br><span class="line">function App () &#123;</span><br><span class="line">  // 使用数据</span><br><span class="line">  const &#123; count &#125; = useSelector(state =&gt; state.counterStore)</span><br><span class="line">  // 修改数据</span><br><span class="line">  const dispatch = useDispatch()</span><br><span class="line">  const clickHandler = () =&gt; &#123;</span><br><span class="line">    dispatch(add())//传入的是导出的action方法</span><br><span class="line">  &#125;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div className=&quot;App&quot;&gt;</span><br><span class="line">      &#123;count&#125;</span><br><span class="line">      &lt;button onClick=&#123;clickHandler&#125;&gt;+&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default App</span><br></pre></td></tr></table></figure>
+
+<p>6.组件中修改数据并传参</p>
+<blockquote>
+<p>在修改数据的方法中添加第二个参数action，对象中有一个固定的属性payload为传递过来的参数</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createSlice &#125; from &quot;@reduxjs/toolkit&quot;</span><br><span class="line">const counterStore = createSlice(&#123;</span><br><span class="line">  name: &#x27;counter&#x27;, // 独一无二不重复的名字语义化</span><br><span class="line">  // 定义初始化的数据</span><br><span class="line">  initialState: &#123;</span><br><span class="line">    taskList: [&#x27;react&#x27;]</span><br><span class="line">  &#125;,</span><br><span class="line">  reducers: &#123;</span><br><span class="line">    // action为一个对象 对象中有一个固定的属性叫做payload 为传递过来的参数</span><br><span class="line">    addTaskList (state, action) &#123;</span><br><span class="line">      state.taskList.push(action.payload)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 生成修改数据的方法导出</span><br><span class="line">const &#123; addTaskList &#125; = counterStore.actions</span><br><span class="line">export &#123; addTaskList &#125;</span><br><span class="line">// 生成reducer 导出 供index.js做组合模块</span><br><span class="line">const reducer = counterStore.reducer</span><br><span class="line"></span><br><span class="line">export default reducer</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>dispatch调用方法的时候传入实参就可以</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123;() =&gt; dispatch(addTaskList(&#x27;vue&#x27;))&#125;&gt;addList&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="7-Redux异步处理"><a href="#7-Redux异步处理" class="headerlink" title="7.Redux异步处理"></a>7.Redux异步处理</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createSlice &#125; from &#x27;@reduxjs/toolkit&#x27;</span><br><span class="line">import axios from &#x27;axios&#x27;</span><br><span class="line"></span><br><span class="line">const channelStore = createSlice(&#123;</span><br><span class="line">  name: &#x27;task&#x27;,</span><br><span class="line">  initialState: &#123;</span><br><span class="line">    channels: []</span><br><span class="line">  &#125;,</span><br><span class="line">  reducers: &#123;</span><br><span class="line">    setChannels (state, action) &#123;</span><br><span class="line">      state.channels = action.payload</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 创建异步</span><br><span class="line">const &#123; setChannels &#125; = channelStore.actions</span><br><span class="line">const url = &#x27;http://geek.itheima.net/v1_0/channels&#x27;</span><br><span class="line">// 封装一个函数 在函数中return一个新函数 在新函数中封装异步</span><br><span class="line">// 得到数据之后通过dispatch函数 触发修改</span><br><span class="line">const fetchChannelList = () =&gt; &#123;</span><br><span class="line">  return async (dispatch) =&gt; &#123;</span><br><span class="line">    const res = await axios.get(url)</span><br><span class="line">    dispatch(setChannels(res.data.data.channels))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export &#123; fetchChannelList &#125;</span><br><span class="line"></span><br><span class="line">const reducer = channelStore.reducer</span><br><span class="line">export default reducer</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import &#123; useEffect &#125; from &#x27;react&#x27;</span><br><span class="line">import &#123; useSelector, useDispatch &#125; from &#x27;react-redux&#x27;</span><br><span class="line">import &#123; fetchChannelList &#125; from &#x27;./store/channelStore&#x27;</span><br><span class="line"></span><br><span class="line">function App () &#123;</span><br><span class="line">  // 使用数据</span><br><span class="line">  const &#123; channels &#125; = useSelector(state =&gt; state.channelStore)</span><br><span class="line">  useEffect(() =&gt; &#123;</span><br><span class="line">    const action = fetchTaskList()</span><br><span class="line">    dispatch(action)</span><br><span class="line">  &#125;, [dispatch])</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div className=&quot;App&quot;&gt;</span><br><span class="line">      &lt;ul&gt;</span><br><span class="line">        &#123;channels.map(task =&gt; &lt;li key=&#123;task.id&#125;&gt;&#123;task.name&#125;&lt;/li&gt;)&#125;</span><br><span class="line">      &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default App</span><br></pre></td></tr></table></figure>
 
 
                 
@@ -424,7 +476,7 @@ npm i sass --save-dev
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Liang Xiao</a>
+                    <a href="/about" rel="external nofollow noreferrer">lx</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -434,7 +486,7 @@ npm i sass --save-dev
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lx0327.github.io/2022/11/29/Scss%E6%A8%A1%E5%9D%97%E5%8C%96%E5%AF%BC%E5%85%A5/">https://lx0327.github.io/2022/11/29/Scss%E6%A8%A1%E5%9D%97%E5%8C%96%E5%AF%BC%E5%85%A5/</a>
+                    <a href="https://lx0327.github.io/2018/09/07/Redux/">https://lx0327.github.io/2018/09/07/Redux/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -447,7 +499,7 @@ npm i sass --save-dev
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Liang Xiao</a>
+                    <a href="/about" target="_blank">lx</a>
                     !
                 </span>
             </div>
@@ -471,7 +523,15 @@ npm i sass --save-dev
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/React-redux/">
+                                    <span class="chip bg-color">React-redux</span>
+                                </a>
+                            
+                                <a href="/tags/Redux-toolkit/">
+                                    <span class="chip bg-color">Redux-toolkit</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -548,10 +608,9 @@ npm i sass --save-dev
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
                 <a href="/2022/11/29/Scss%E6%A8%A1%E5%9D%97%E5%8C%96%E5%AF%BC%E5%85%A5/">
                     <div class="card-image">
@@ -569,9 +628,9 @@ npm i sass --save-dev
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-29
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-29
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -580,7 +639,6 @@ npm i sass --save-dev
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -588,7 +646,7 @@ npm i sass --save-dev
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
                 <a href="/2018/09/07/Redux/">
@@ -622,6 +680,7 @@ npm i sass --save-dev
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
